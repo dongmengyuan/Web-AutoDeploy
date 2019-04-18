@@ -15,36 +15,45 @@
         <form class="layui-form" action="">
             <div>
                 <i class="layui-icon layui-icon-username admin-icon admin-icon-username"></i>
-                <input type="text" name="username" placeholder="请输入用户名"
+                <input type="text" name="username" id="username" placeholder="请输入用户名"
                        autocomplete="off"
                        class="layui-input admin-input admin-input-username">
             </div>
             <div>
                 <i class="layui-icon layui-icon-password admin-icon admin-icon-password"></i>
-                <input type="password" name="password"
+                <input type="password" name="password" id="password"
                        placeholder="请输入密码"
                        autocomplete="off"
                        class="layui-input admin-input">
             </div>
-            <!--<div>-->
-                <!--<input type="text" name="verify"-->
-                       <!--placeholder="请输入验证码"-->
-                       <!--autocomplete="off"-->
-                       <!--class="layui-input admin-input admin-input-verify">-->
-                <!--<img class="admin-captcha" src=""-->
-                     <!--onclick="updateVerify()">-->
-            <!--</div>-->
-            <button type="submit" class="layui-btn admin-button" lay-submit lay-filter="formDemo">Login</button>
+
+            <button type="submit" class="layui-btn admin-button" lay-submit lay-filter="formDemo" onclick="add()">Login</button>
 
         </form>
     </div>
 
 </div>
 <script src="layui/layui.js"></script>
+<script src="layui/jscript/login.js"></script>
 <script>
-
     function updateVerify() {
 
+    }
+    function add() {
+        var name = document.getElementById('username');
+        var pass = document.getElementById('password');
+        alert(1111);
+        if (name.value === '' || pass.value === '') {
+            // document.getElementById("alert").innerHTML = ('用户名、密码不能为空');
+            return false;
+        }
+        if (name.value != 'hah' || pass.value != '123123') {
+            document.getElementById("alert").innerHTML = ('用户名或密码错误');
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 </script>
 </body>
